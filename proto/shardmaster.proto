@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package proto;
+
+service ShardMaster{
+  rpc Join(JoinRequest) returns (JoinReply);
+  rpc Leave(LeaveRequest) returns (LeaveReply);
+  rpc Move(MoveRequest) returns (MoveReply);
+  rpc Query(QueryRequest) returns (QueryReply);
+}
+
+message JoinRequest {
+  uint64  gid = 1;
+  repeated string servers = 2;
+}
+
+message JoinReply {
+
+}
+
+message LeaveRequest {
+  uint64  gID = 1;
+}
+
+message LeaveReply {
+
+}
+
+message MoveRequest {
+  uint64 zoneID = 1;
+  uint64 gID = 2;
+}
+
+message MoveReply {
+
+}
+
+message QueryRequest {
+  uint64 version = 1;
+}
+
+message stringList {
+  repeated string strings = 1;
+}
+
+message ClusterConfig {
+  map<uint64, stringList> groups = 1;
+  map<uint64, uint64> zones = 2;
+  uint64 version = 3;
+}
+
+message QueryReply {
+  uint64 version = 1;
+  ClusterConfig config = 2;
+}
