@@ -9,9 +9,12 @@ service ShardMaster{
   rpc Query(QueryRequest) returns (QueryReply);
 }
 
+message stringList {
+  repeated string strings = 1;
+}
+
 message JoinRequest {
-  uint64  gid = 1;
-  repeated string servers = 2;
+  map<uint64, stringList> groups = 1;
 }
 
 message JoinReply {
@@ -19,7 +22,7 @@ message JoinReply {
 }
 
 message LeaveRequest {
-  uint64  gID = 1;
+  repeated uint64  gIDs = 1;
 }
 
 message LeaveReply {
@@ -37,10 +40,6 @@ message MoveReply {
 
 message QueryRequest {
   uint64 version = 1;
-}
-
-message stringList {
-  repeated string strings = 1;
 }
 
 message ClusterConfig {
