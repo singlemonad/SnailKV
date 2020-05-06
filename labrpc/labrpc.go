@@ -13,6 +13,8 @@ import (
 	"time"
 )
 
+const grpcTimeout = time.Millisecond * 50
+
 type reqMsg struct {
 	endname  interface{} // name of sending ClientEnd
 	svcMeth  string      // e.g. "Raft.AppendEntries"
@@ -27,6 +29,7 @@ type replyMsg struct {
 	reply interface{}
 }
 
+//
 type ClientEnd struct {
 	endname interface{} // this end-point's name
 	ch      chan reqMsg // copy of Network.endCh

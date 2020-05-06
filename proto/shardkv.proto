@@ -7,6 +7,7 @@ service ShardKV{
   rpc Append(AppendRequest) returns (AppendReply);
   rpc Delete(DeleteRequest) returns (DeleteReply);
   rpc Get(GetRequest) returns (GetReply);
+  rpc Migrate(MigrateRequest) returns (MigrateReply);
 }
 
 message PutRequest {
@@ -41,4 +42,12 @@ message GetRequest {
 
 message GetReply {
   string value = 1;
+}
+
+message MigrateRequest {
+
+}
+
+message MigrateReply {
+
 }
