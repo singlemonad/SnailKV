@@ -8,7 +8,6 @@ import (
 	"time"
 
 	"github.com/singlemonad/SnailKV/common"
-
 	pb "github.com/singlemonad/SnailKV/proto"
 	"github.com/singlemonad/SnailKV/raft"
 	"github.com/singlemonad/SnailKV/shardmaster"

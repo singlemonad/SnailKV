@@ -7,14 +7,12 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/singlemonad/SnailKV/raft"
-
 	"github.com/singlemonad/SnailKV/common"
+	pb "github.com/singlemonad/SnailKV/proto"
+	"github.com/singlemonad/SnailKV/raft"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-
-	pb "github.com/singlemonad/SnailKV/proto"
 )
 
 const gRPCTimeout = time.Millisecond * 50
